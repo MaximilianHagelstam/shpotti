@@ -1,3 +1,3 @@
 # Shpotti
 
-Discover and share skate spots in Finland
+Discover and share skate spots

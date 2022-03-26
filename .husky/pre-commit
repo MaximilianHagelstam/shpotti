@@ -8,4 +8,4 @@ yarn format
 echo 'Linting🔎';
 yarn lint
 
-echo '✅✅✅ Committing ✅✅✅'
+echo '✅✅✅ Ready to commit ✅✅✅'

@@ -21,7 +21,7 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "no-console": "error",
-    "no-shadow": "error"
+    "no-console": "warn",
+    "no-shadow": "warn"
   }
 }

@@ -1,7 +1,6 @@
 import { Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <Text color="brand.main" fontSize="9xl">
           Shpotti
         </Text>

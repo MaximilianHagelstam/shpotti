@@ -12,9 +12,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Text color="brand.main" fontSize="9xl">
-          Shpotti
-        </Text>
+        <Text fontSize="3xl">Shpotti</Text>
+        <h1 className="text-3xl font-bold">Hello world!</h1>
       </main>
     </>
   );

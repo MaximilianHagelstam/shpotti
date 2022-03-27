@@ -15,9 +15,8 @@ yarn start
 
 - Next.js
 - TypeScript
-- React Query
 - Tailwind CSS
-- Chakra UI
+- React Query
 - Cypress
 - Firebase
 

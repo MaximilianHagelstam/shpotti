@@ -7,8 +7,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <title>Shpotti</title>
-        <meta name="description" content="Discover and share skate spots" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </>

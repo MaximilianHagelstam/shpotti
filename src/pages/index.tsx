@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <nav>
       <Link href="/about">
-        <a className="text-xl text-green-800 hover:underline">About</a>
+        <a className="text-3xl hover:underline">About</a>
       </Link>
     </nav>
   );

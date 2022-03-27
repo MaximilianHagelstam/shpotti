@@ -1,14 +1,7 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 
 const Home: NextPage = () => {
-  return (
-    <nav>
-      <Link href="/about">
-        <a className="text-3xl hover:underline">About</a>
-      </Link>
-    </nav>
-  );
+  return <h1 className="text-6xl font-bold text-center py-12">James</h1>;
 };
 
 export default Home;

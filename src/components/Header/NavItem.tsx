@@ -6,7 +6,11 @@ interface NavItemProps {
 }
 
 const NavItem = ({ title, link }: NavItemProps) => {
-  return <a href={link}>{title}</a>;
+  return (
+    <a className="mr-4" href={link}>
+      {title}
+    </a>
+  );
 };
 
 export default NavItem;

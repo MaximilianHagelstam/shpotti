@@ -3,14 +3,11 @@ import SearchBar from "./SearchBar";
 
 const Header = () => {
   return (
-    <nav className="flex items-center justify-between flex-wrap py-16 px-8">
-      <div className="flex items-center flex-shrink-0 mr-6">
-        <span className="font-semibold text-2xl tracking-tight">Shpotti</span>
-      </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm lg:flex-grow">
-          <NavItem title="My Spots" link="my-spots" />
-        </div>
+    <nav className="flex items-center justify-between py-16 px-8 flex-col lg:flex-row md:flex-row">
+      <span className="font-semibold text-2xl">Shpotti</span>
+      <div className="flex flex-grow w-auto items-center text-sm pt-4 lg:pt-0 md:pt-0">
+        <div className="flex-grow" />
+        <NavItem title="My Spots" link="my-spots" />
         <SearchBar />
       </div>
     </nav>

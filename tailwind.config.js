@@ -4,6 +4,9 @@ module.exports = {
     content: ["./src/**/*.tsx", "./public/index.html"],
   },
   theme: {
+    colors: {
+      brand: "#df4716",
+    },
     extend: {
       fontFamily: {
         sans: ["Poppins"],

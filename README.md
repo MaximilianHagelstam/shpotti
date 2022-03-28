@@ -1,4 +1,26 @@
-# Shpotti
+  <p align="center">
+    <img height=100 src="logo.svg"/>
+  </p>
+
+<p align="center">
+  <strong>
+    Discover and share skate spots
+  </strong>
+</p>
+
+<h3 align="center">
+  <a href="#prerequisites">Prerequisites</a>
+  <span> · </span>
+  <a href="#getting-started">Getting Started</a>
+  <span> · </span>
+  <a href="#technologies">Stack</a>
+</h3>
+
+## Prerequisites
+
+- Node.js 12<
+- Yarn
+- Firebase
 
 ## Getting Started
 
@@ -14,7 +36,6 @@ yarn start
 ## Stack
 
 - Next.js
-- TypeScript
 - Tailwind CSS
 - React Query
 - Cypress

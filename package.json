@@ -13,6 +13,7 @@
     "cypress:headless": "cypress run"
   },
   "dependencies": {
+    "firebase": "^9.6.10",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"

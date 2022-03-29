@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   mode: "jit",
   purge: {
@@ -5,9 +8,10 @@ module.exports = {
   },
   theme: {
     colors: {
-      red: "#df4716",
-      white: "#ffffff",
-      black: "#000000",
+      brand: "#df4716",
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
     },
     extend: {
       fontFamily: {

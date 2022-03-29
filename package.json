@@ -8,12 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write src",
-    "prepare": "husky install",
-    "cypress": "cypress open",
-    "cypress:headless": "cypress run"
+    "prepare": "husky install"
   },
   "dependencies": {
-    "firebase": "^9.6.10",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -26,7 +23,6 @@
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "autoprefixer": "^10.4.4",
-    "cypress": "^9.5.2",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "eslint-plugin-cypress": "^2.12.1",

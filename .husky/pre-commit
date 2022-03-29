@@ -4,8 +4,4 @@
 echo 'Formatting💅';
 yarn format
 
-
-echo 'Linting🔎';
-yarn lint
-
 echo '✅✅✅ Ready to commit ✅✅✅'

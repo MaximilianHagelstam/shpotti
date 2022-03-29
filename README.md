@@ -20,7 +20,6 @@
 
 - Node.js 12<
 - Yarn
-- Firebase
 
 ## Getting Started
 
@@ -37,9 +36,7 @@ yarn start
 
 - Next.js
 - Tailwind CSS
-- React Query
-- Cypress
-- Firebase
+- swr
 
 ## License
 

@@ -35,7 +35,11 @@ yarn start
 ## Stack
 
 - CRA
+<<<<<<< HEAD
 - Tailwind CSS
+=======
+- Material UI
+>>>>>>> 5704c72e984accea4b75d8a351b430c1c58fc68d
 - Firebase
 
 ## License

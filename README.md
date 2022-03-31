@@ -34,9 +34,8 @@ yarn start
 
 ## Stack
 
-- Next.js
+- CRA
 - Tailwind CSS
-- swr
 - Firebase
 
 ## License

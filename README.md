@@ -35,7 +35,7 @@ yarn start
 ## Stack
 
 - CRA
-- Tailwind CSS
+- MUI
 - Firebase
 
 ## License

@@ -1,5 +1,7 @@
+import { Button } from "@mui/material";
+
 const App = () => {
-  return <h1 className="text-5xl text-brand font-bold">Hello Team!</h1>;
+  return <Button>Hello</Button>;
 };
 
 export default App;

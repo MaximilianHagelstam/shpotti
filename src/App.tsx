@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button } from "@chakra-ui/react";
 
 const App = () => {
   return <Button>Hello</Button>;

@@ -34,8 +34,8 @@ yarn start
 
 ## Stack
 
-- CRA
-- MUI
+- React
+- Chakra UI
 - Firebase
 
 ## License

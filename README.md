@@ -1,4 +1,4 @@
-# Tailwind CSS
+# Shpotti
 
 ## Prerequisites
 

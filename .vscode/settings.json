@@ -9,7 +9,7 @@
   },
   "search.exclude": {
     "node_modules": true,
-    "build": true,
+    ".next": true,
     "yarn.lock": true
   }
 }

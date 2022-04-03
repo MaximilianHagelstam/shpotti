@@ -1,9 +1,8 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
+import classNames from "../utils/classNames";
 import navLinks from "./navLinks";
-
-const classNames = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
 interface LayoutProps {
   title: string;

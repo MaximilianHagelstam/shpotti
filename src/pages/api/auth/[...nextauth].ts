@@ -14,4 +14,10 @@ export default NextAuth({
     brandColor: "#6366f1",
     logo: "https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg",
   },
+  callbacks: {
+    async session({ session, token }) {
+      session.user.id = token.sub || "";
+      return session;
+    },
+  },
 });

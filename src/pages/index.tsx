@@ -35,6 +35,7 @@ const Home: NextPage = () => {
         <>
           <p>Signed in as {session.user.email}</p>
           <p>Name {session.user.name}</p>
+          <p>Id {session.user.id}</p>
           <Image
             src={session.user.image}
             alt={session.user.name}

@@ -1,6 +1,14 @@
 import { Disclosure } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+  LoginIcon,
+  LogoutIcon,
+  MenuIcon,
+  UserIcon,
+  XIcon,
+} from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import classNames from "../utils/classNames";
 import navLinks from "./navLinks";
 
@@ -10,6 +18,8 @@ interface LayoutProps {
 }
 
 const Layout = ({ title, children }: LayoutProps) => {
+  const { data: session } = useSession();
+
   return (
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-white">
@@ -45,6 +55,50 @@ const Layout = ({ title, children }: LayoutProps) => {
                   </div>
                 </div>
 
+                <div className="hidden md:block">
+                  <div className="ml-4 flex items-center md:ml-6">
+                    {session ? (
+                      <>
+                        <a
+                          className="inline-flex items-center px-4 mx-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                          href={`/api/auth/signout`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            signOut();
+                          }}
+                        >
+                          <LogoutIcon
+                            className="-ml-1 mr-2 h-5 w-5"
+                            aria-hidden="true"
+                          />
+                          Sign Out
+                        </a>
+                        <Link href="/profile" passHref>
+                          <UserIcon
+                            className="h-6 w-6 text-gray-500 hover:text-gray-900"
+                            aria-hidden="true"
+                          />
+                        </Link>
+                      </>
+                    ) : (
+                      <a
+                        href={`/api/auth/signin`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          signIn();
+                        }}
+                        className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                      >
+                        <LoginIcon
+                          className="-ml-1 mr-2 h-5 w-5"
+                          aria-hidden="true"
+                        />
+                        Sign In
+                      </a>
+                    )}
+                  </div>
+                </div>
+
                 <div className="-mr-2 flex md:hidden">
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900">
                     <span className="sr-only">Open main menu</span>
@@ -76,6 +130,52 @@ const Layout = ({ title, children }: LayoutProps) => {
                     {item.name}
                   </Disclosure.Button>
                 ))}
+              </div>
+
+              <div className="pt-4 pb-3 border-t border-gray-200">
+                <div className="flex items-center px-5">
+                  {session ? (
+                    <>
+                      <Link href="/profile" passHref>
+                        <UserIcon
+                          className="h-6 w-6 text-gray-500 hover:text-gray-900"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                      <div className="ml-auto flex-shrink-0 p-1">
+                        <a
+                          className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                          href={`/api/auth/signout`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            signOut();
+                          }}
+                        >
+                          <LogoutIcon
+                            className="-ml-1 mr-2 h-5 w-5"
+                            aria-hidden="true"
+                          />
+                          Sign Out
+                        </a>
+                      </div>
+                    </>
+                  ) : (
+                    <a
+                      href={`/api/auth/signin`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signIn();
+                      }}
+                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                    >
+                      <LoginIcon
+                        className="-ml-1 mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      Sign In
+                    </a>
+                  )}
+                </div>
               </div>
             </Disclosure.Panel>
           </>

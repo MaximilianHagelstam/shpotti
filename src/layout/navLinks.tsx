@@ -5,11 +5,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-  { name: "Reports", href: "#", current: false },
+  { name: "Discover", href: "/", current: true },
+  { name: "Liked Spots", href: "/liked", current: false },
+  { name: "Add Spot", href: "/add", current: false },
+  { name: "Profile", href: "/profile", current: false },
 ];
 
 export default navLinks;

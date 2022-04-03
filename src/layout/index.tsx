@@ -68,7 +68,7 @@ const Layout = ({ title, children }: LayoutProps) => {
                     className={classNames(
                       item.current
                         ? "bg-indigo-500 text-white"
-                        : "text-gray-500 hover:bg-indigo-400 hover:text-white",
+                        : "text-gray-500 hover:bg-indigo-50 hover:text-black",
                       "block px-3 py-2 rounded-md text-base font-medium"
                     )}
                     aria-current={item.current ? "page" : undefined}

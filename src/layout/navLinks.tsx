@@ -8,7 +8,6 @@ const navLinks: NavLink[] = [
   { name: "Discover", href: "/", current: true },
   { name: "Liked Spots", href: "/liked", current: false },
   { name: "Add Spot", href: "/add", current: false },
-  { name: "Profile", href: "/profile", current: false },
 ];
 
 export default navLinks;

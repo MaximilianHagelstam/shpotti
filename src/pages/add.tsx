@@ -6,9 +6,19 @@ const Add: NextPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`Title: ${title}`, `Description: ${description}`);
+
+    await fetch("/api/spot/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+      }),
+    });
   };
 
   return (

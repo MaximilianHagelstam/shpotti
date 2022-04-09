@@ -17,4 +17,19 @@ export default NextAuth({
     logo: "https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg",
   },
   secret: process.env.SECRET,
+  callbacks: {
+    session: async ({ session }) => {
+      const dbUser = await prisma.user.findFirst({
+        where: {
+          email: session.user.email,
+        },
+      });
+
+      if (dbUser) {
+        session.user = dbUser;
+      }
+
+      return session;
+    },
+  },
 });

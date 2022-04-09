@@ -45,6 +45,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  spots         Spot[]
 
   @@map("users")
 }
@@ -57,4 +58,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Spot {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  userId      String
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("spots")
 }

@@ -1,9 +1,10 @@
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import clientPromise from "../../../lib/mongodb";
+import prisma from "../../../lib/prisma";
 
 export default NextAuth({
+  adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -16,5 +17,4 @@ export default NextAuth({
     logo: "https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg",
   },
   secret: process.env.SECRET,
-  adapter: MongoDBAdapter(clientPromise),
 });

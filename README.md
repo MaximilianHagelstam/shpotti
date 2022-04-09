@@ -13,6 +13,7 @@ cd shpotti
 
 yarn install
 yarn prepare
+yarn generate:prod
 yarn build
 yarn start
 ```
@@ -21,7 +22,8 @@ yarn start
 
 - Next.js
 - Tailwind CSS
-- Firebase
+- MongoDB
+- Prisma
 
 ## License
 

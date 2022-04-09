@@ -143,9 +143,7 @@ const Navbar = () => {
                     <Disclosure.Button
                       as="a"
                       href="/profile"
-                      className={classNames(
-                        "block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
-                      )}
+                      className="block px-3 py-2 my-1 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
                     >
                       Profile
                     </Disclosure.Button>
@@ -157,9 +155,7 @@ const Navbar = () => {
                         e.preventDefault();
                         signOut();
                       }}
-                      className={classNames(
-                        "block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
-                      )}
+                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
                     >
                       Sign Out
                     </Disclosure.Button>
@@ -174,7 +170,7 @@ const Navbar = () => {
                       signIn();
                     }}
                     className={classNames(
-                      "block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
+                      "block px-3 py-2 my-1 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
                     )}
                   >
                     Sign In

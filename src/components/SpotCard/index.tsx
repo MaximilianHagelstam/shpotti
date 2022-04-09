@@ -1,8 +1,13 @@
+import { Spot } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
 import classNames from "../../utils/classNames";
 
-const Spot = () => {
+interface SpotCardProps {
+  spot: Spot;
+}
+
+const SpotCard = ({ spot }: SpotCardProps) => {
   const [isLoading, setLoading] = useState(true);
 
   return (
@@ -22,10 +27,10 @@ const Spot = () => {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
-      <h3 className="mt-4 text-sm text-gray-700">Hello team</h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">James</p>
+      <h3 className="mt-4 text-sm text-gray-700">{spot.description}</h3>
+      <p className="mt-1 text-lg font-medium text-gray-900">{spot.title}</p>
     </a>
   );
 };
 
-export default Spot;
+export default SpotCard;

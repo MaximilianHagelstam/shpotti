@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Router from "next/router";
 import { FormEvent, useState } from "react";
 import Layout from "../layout";
 
@@ -19,6 +20,8 @@ const Add: NextPage = () => {
         description,
       }),
     });
+
+    Router.push("/");
   };
 
   return (

@@ -12,7 +12,7 @@ const Add: NextPage = () => {
           <input
             type="text"
             id="title"
-            className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full sm:w-96 p-2.5"
+            className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full p-2.5"
           />
         </div>
         <div className="mb-6">
@@ -22,7 +22,7 @@ const Add: NextPage = () => {
           <input
             type="text"
             id="description"
-            className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full sm:w-96 p-2.5"
+            className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full p-2.5"
           />
         </div>
         <button

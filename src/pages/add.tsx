@@ -10,7 +10,7 @@ const Add: NextPage = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await fetch("/api/spot/add", {
+    await fetch("/api/spots/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,37 +1,25 @@
 import { Spot } from "@prisma/client";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import SpotCard from "../components/SpotCard";
 import Layout from "../layout";
 
-const fetchSpots = async (): Promise<Spot[]> => {
-  const res = await fetch("/api/spot");
-  return res.json();
-};
-
 const Home: NextPage = () => {
-  const [spots, setSpots] = useState<Spot[] | null>(null);
+  const { data, error } = useSWR<Spot[]>("/api/spots", (apiURL: string) =>
+    fetch(apiURL).then((res) => res.json())
+  );
 
-  useEffect(() => {
-    fetchSpots().then((res) => {
-      setSpots(res);
-    });
-  }, []);
+  if (error) return <div>Error</div>;
+  if (!data && !error) return <div>Loading...</div>;
 
   return (
-    <>
-      {spots ? (
-        <Layout title="Home">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {spots.map((spot) => (
-              <SpotCard key={spot.id} spot={spot} />
-            ))}
-          </div>
-        </Layout>
-      ) : (
-        <>Loading</>
-      )}
-    </>
+    <Layout title="Home">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {data?.map((spot) => (
+          <SpotCard key={spot.id} spot={spot} />
+        ))}
+      </div>
+    </Layout>
   );
 };
 

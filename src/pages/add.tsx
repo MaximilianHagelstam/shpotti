@@ -35,7 +35,7 @@ const Add: NextPage = () => {
   if (error) return <div>Error</div>;
 
   return (
-    <Layout title="Add Spot">
+    <Layout>
       <form onSubmit={onSubmit}>
         <div className="mb-6">
           <label className="block mb-2 text-sm font-medium text-gray-900">

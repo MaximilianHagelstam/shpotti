@@ -15,17 +15,14 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).send({ message: "Unauthorized" });
   }
 
-  const { title, description } = req.body;
-  if (!title || !description) {
-    return res
-      .status(400)
-      .send({ message: "Title or description missing from request body" });
+  const { title } = req.body;
+  if (!title) {
+    return res.status(400).send({ message: "Title missing from request body" });
   }
 
   const createdSpot = await prisma.spot.create({
     data: {
       title,
-      description,
       userId: session.user.id,
     },
   });

@@ -28,7 +28,7 @@ const SpotCard = ({ spot }: SpotCardProps) => {
         />
       </div>
 
-      <h3 className="mt-4 text-sm text-gray-700">{spot.description}</h3>
+      <h3 className="mt-4 text-sm text-gray-700">{spot.userId}</h3>
       <p className="mt-1 text-lg font-medium text-gray-900">{spot.title}</p>
     </a>
   );

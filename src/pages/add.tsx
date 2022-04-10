@@ -9,8 +9,6 @@ const Add: NextPage = () => {
   const { status } = useSession();
 
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -26,7 +24,6 @@ const Add: NextPage = () => {
         },
         body: JSON.stringify({
           title,
-          description,
         }),
       });
       setLoading(false);
@@ -52,25 +49,11 @@ const Add: NextPage = () => {
             type="text"
             id="title"
             className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full p-2.5"
-            required
             onChange={(e) => {
               setTitle(e.target.value);
             }}
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block mb-2 text-sm font-medium text-gray-900">
-            Description
-          </label>
-          <input
-            type="text"
-            id="description"
-            className="bg-gray-50 border border-gray-300 focus:outline-indigo-500 focus:outline-2 text-gray-900 text-sm rounded-lg w-full p-2.5"
+            maxLength={30}
             required
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
           />
         </div>
 

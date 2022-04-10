@@ -1,13 +1,12 @@
 interface NavLink {
   name: string;
   href: string;
-  current: boolean;
 }
 
 const navLinks: NavLink[] = [
-  { name: "Discover", href: "/", current: true },
-  { name: "Liked Spots", href: "/liked", current: false },
-  { name: "Add Spot", href: "/add", current: false },
+  { name: "Discover", href: "/" },
+  { name: "Liked Spots", href: "/liked" },
+  { name: "Add Spot", href: "/add" },
 ];
 
 export default navLinks;

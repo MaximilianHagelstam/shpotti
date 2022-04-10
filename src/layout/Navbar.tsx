@@ -2,11 +2,13 @@ import { Disclosure, Menu } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import classNames from "../utils/classNames";
 import navLinks from "./navLinks";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   return (
     <Disclosure as="nav" className="bg-white">
@@ -28,12 +30,11 @@ const Navbar = () => {
                         key={link.name}
                         href={link.href}
                         className={classNames(
-                          link.current
+                          router.pathname === link.href
                             ? "bg-indigo-500 text-white"
                             : "text-gray-500 hover:bg-indigo-50 hover:text-black transition ease-in-out",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={link.current ? "page" : undefined}
                       >
                         {link.name}
                       </a>
@@ -137,12 +138,11 @@ const Navbar = () => {
                   as="a"
                   href={link.href}
                   className={classNames(
-                    link.current
+                    router.pathname === link.href
                       ? "bg-indigo-500 text-white"
                       : "text-gray-500 hover:bg-indigo-50 hover:text-black",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={link.current ? "page" : undefined}
                 >
                   {link.name}
                 </Disclosure.Button>

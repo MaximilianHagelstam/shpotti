@@ -16,6 +16,12 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const { title, description } = req.body;
+  if (!title || !description) {
+    return res
+      .status(400)
+      .send({ message: "Title or description missing from request body" });
+  }
+
   const createdSpot = await prisma.spot.create({
     data: {
       title,
@@ -23,7 +29,8 @@ const add = async (req: NextApiRequest, res: NextApiResponse) => {
       userId: session.user.id,
     },
   });
-  return res.json(createdSpot);
+
+  return res.status(201).json(createdSpot);
 };
 
 export default add;

@@ -11,10 +11,10 @@ const SpotCard = ({ spot }: SpotCardProps) => {
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <a href="#" className="group">
+    <a href={`/spots/${spot.id}`} className="group">
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-xl">
         <Image
-          alt=""
+          alt={spot.title}
           src="/img/park.jpg"
           layout="fill"
           objectFit="cover"
@@ -27,6 +27,7 @@ const SpotCard = ({ spot }: SpotCardProps) => {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
+
       <h3 className="mt-4 text-sm text-gray-700">{spot.description}</h3>
       <p className="mt-1 text-lg font-medium text-gray-900">{spot.title}</p>
     </a>

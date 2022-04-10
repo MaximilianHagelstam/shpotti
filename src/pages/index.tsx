@@ -10,10 +10,9 @@ const Home: NextPage = () => {
   );
 
   if (error) return <div>Error</div>;
-  if (!data && !error) return <div>Loading...</div>;
 
   return (
-    <Layout title="Home">
+    <Layout title="Discover">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data?.map((spot) => (
           <SpotCard key={spot.id} spot={spot} />

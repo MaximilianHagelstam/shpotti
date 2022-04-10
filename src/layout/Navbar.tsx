@@ -6,7 +6,7 @@ import classNames from "../utils/classNames";
 import navLinks from "./navLinks";
 
 const Navbar = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <Disclosure as="nav" className="bg-white">
@@ -23,19 +23,19 @@ const Navbar = () => {
                 />
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    {navLinks.map((item) => (
+                    {navLinks.map((link) => (
                       <a
-                        key={item.name}
-                        href={item.href}
+                        key={link.name}
+                        href={link.href}
                         className={classNames(
-                          item.current
+                          link.current
                             ? "bg-indigo-500 text-white"
                             : "text-gray-500 hover:bg-indigo-50 hover:text-black transition ease-in-out",
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? "page" : undefined}
+                        aria-current={link.current ? "page" : undefined}
                       >
-                        {item.name}
+                        {link.name}
                       </a>
                     ))}
                   </div>
@@ -44,7 +44,26 @@ const Navbar = () => {
 
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
-                  {session ? (
+                  {status === "loading" && (
+                    <div className="animate-pulse flex space-x-4">
+                      <div className="rounded-full bg-slate-700 h-8 w-8"></div>
+                    </div>
+                  )}
+
+                  {status === "unauthenticated" && (
+                    <a
+                      href={`/api/auth/signin`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        signIn();
+                      }}
+                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                    >
+                      Sign In
+                    </a>
+                  )}
+
+                  {status === "authenticated" && (
                     <Menu as="div" className="ml-3 relative">
                       <div>
                         <Menu.Button className="max-w-xs rounded-full flex items-center text-sm focus:ring-gray-500 focus:ring-1">
@@ -52,7 +71,10 @@ const Navbar = () => {
                             className="rounded-full"
                             width={32}
                             height={32}
-                            src={session.user.image}
+                            src={
+                              session.user.image ||
+                              "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                            }
                             alt=""
                           />
                         </Menu.Button>
@@ -90,17 +112,6 @@ const Navbar = () => {
                         </Menu.Item>
                       </Menu.Items>
                     </Menu>
-                  ) : (
-                    <a
-                      href={`/api/auth/signin`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        signIn();
-                      }}
-                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                    >
-                      Sign In
-                    </a>
                   )}
                 </div>
               </div>
@@ -120,25 +131,42 @@ const Navbar = () => {
 
           <Disclosure.Panel className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navLinks.map((item) => (
+              {navLinks.map((link) => (
                 <Disclosure.Button
-                  key={item.name}
+                  key={link.name}
                   as="a"
-                  href={item.href}
+                  href={link.href}
                   className={classNames(
-                    item.current
+                    link.current
                       ? "bg-indigo-500 text-white"
                       : "text-gray-500 hover:bg-indigo-50 hover:text-black",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? "page" : undefined}
+                  aria-current={link.current ? "page" : undefined}
                 >
-                  {item.name}
+                  {link.name}
                 </Disclosure.Button>
               ))}
 
               <div className="border-t border-gray-200">
-                {session ? (
+                {status === "unauthenticated" && (
+                  <Disclosure.Button
+                    as="a"
+                    href={`/api/auth/signin`}
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    onClick={(e: any) => {
+                      e.preventDefault();
+                      signIn();
+                    }}
+                    className={classNames(
+                      "block px-3 py-2 my-1 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
+                    )}
+                  >
+                    Sign In
+                  </Disclosure.Button>
+                )}
+
+                {status === "authenticated" && (
                   <>
                     <Disclosure.Button
                       as="a"
@@ -160,21 +188,6 @@ const Navbar = () => {
                       Sign Out
                     </Disclosure.Button>
                   </>
-                ) : (
-                  <Disclosure.Button
-                    as="a"
-                    href={`/api/auth/signin`}
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    onClick={(e: any) => {
-                      e.preventDefault();
-                      signIn();
-                    }}
-                    className={classNames(
-                      "block px-3 py-2 my-1 rounded-md text-base font-medium text-gray-500 hover:bg-indigo-50 hover:text-black"
-                    )}
-                  >
-                    Sign In
-                  </Disclosure.Button>
                 )}
               </div>
             </div>

@@ -1,11 +1,15 @@
 import type { NextPage } from "next";
+import { useSession } from "next-auth/react";
 import Router from "next/router";
 import { FormEvent, useState } from "react";
 import Layout from "../layout";
 
 const Add: NextPage = () => {
+  const { status } = useSession();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -33,6 +37,7 @@ const Add: NextPage = () => {
   };
 
   if (error) return <div>Error</div>;
+  if (status === "unauthenticated") return <>Unauthenticated</>;
 
   return (
     <Layout>

@@ -1,7 +1,7 @@
 import { Spot } from "@prisma/client";
 import Image from "next/image";
 import { useState } from "react";
-import classNames from "../../utils/classNames";
+import classNames from "../../lib/classNames";
 
 interface SpotCardProps {
   spot: Spot;

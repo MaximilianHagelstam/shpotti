@@ -1,6 +1,7 @@
 import { Spot } from "@prisma/client";
 import type { NextPage } from "next";
 import useSWR from "swr";
+import CustomError from "../components/CustomError";
 import SpotCard from "../components/SpotCard";
 import Layout from "../layout";
 
@@ -9,7 +10,7 @@ const Home: NextPage = () => {
     fetch(apiURL).then((res) => res.json())
   );
 
-  if (error) return <div>Error</div>;
+  if (error) return <CustomError statusCode={500} title="Server Error" />;
 
   return (
     <Layout>

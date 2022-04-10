@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Router from "next/router";
 import { FormEvent, useState } from "react";
+import CustomError from "../components/CustomError";
 import Layout from "../layout";
 
 const Add: NextPage = () => {
@@ -36,8 +37,9 @@ const Add: NextPage = () => {
     Router.push("/");
   };
 
-  if (error) return <div>Error</div>;
-  if (status === "unauthenticated") return <>Unauthenticated</>;
+  if (error) return <CustomError statusCode={500} title="Server Error" />;
+  if (status === "unauthenticated")
+    return <CustomError statusCode={401} title="Unauthenticated" />;
 
   return (
     <Layout>
